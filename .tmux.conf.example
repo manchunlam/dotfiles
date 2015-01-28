@@ -5,9 +5,16 @@ set -g default-terminal "screen-256color"
 bind-key a send-prefix
 
 # Copy and paste for Mac
-set-option -g default-command "reattach-to-user-namespace -l zsh" # or bash...
-bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"
-bind C-v run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
+if-shell 'test "$(uname -s)" = "Darwin"' \
+  'set-option -g default-command "reattach-to-user-namespace -l zsh"' # or bash...
+if-shell 'test "$(uname -s)" = "Darwin"' \
+  'bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"'
+if-shell 'test "$(uname -s)" = "Darwin"' \
+  'bind C-v run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"'
+
+# Copy and paste for Linux
+if-shell 'test "$(uname -s)" = "Linux"' \
+  'bind C-v run-shell "tmux show-buffer | xclip -sel clip -i"'
 
 # Copy from remote to Mac
 # Enable only on Remote. Must disable "Copy and paste for Mac"
