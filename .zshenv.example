@@ -1,0 +1,11 @@
+if [ -x /usr/libexec/path_helper ]; then
+  eval `/usr/libexec/path_helper -s`
+fi
+
+export BUNDLER_EDITOR="vim -f"
+export EDITOR="vim -f"
+export GIT_EDITOR="vim -f"
+export HISTFILESIZE=
+export HISTSIZE=
+export PATH="/usr/local/share/npm/bin:$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"

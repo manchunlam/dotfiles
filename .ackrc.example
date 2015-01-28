@@ -1,0 +1,9 @@
+--ignore-dir=.bundle
+--ignore-dir=log
+--ignore-dir=tmp
+--ignore-file=match:tags
+--ignore-dir=coverage
+--ignore-dir=bin
+
+--type-add
+html:ext:haml

@@ -1,0 +1,110 @@
+" Load pathogen as a submodule
+source ~/.vim/bundle/vim-pathogen/autoload/pathogen.vim
+
+" Needed on some linux distros.
+" see http://www.adamlowe.me/2009/12/vim-destroys-all-other-rails-editors.html
+" filetype on, then filetype off to get vim to play nicely with Pry
+filetype on
+filetype off
+call pathogen#infect("bundle/{}", "~/.vim/bundle/{}")
+call pathogen#helptags()
+
+" Prevent vim from adding a new-line at end-of-file
+set binary
+
+set number
+set printoptions=number:y,portrait:n
+set softtabstop=2
+set shiftwidth=2
+set tabstop=2
+set expandtab
+set ruler
+set list
+" set clipboard=unnamed
+set cursorline
+" set cursorcolumn
+
+syntax on
+filetype plugin indent on
+set nocompatible
+set hlsearch
+
+" color scheme
+set background=dark
+colorscheme wombat
+
+" folding
+set foldmethod=syntax
+
+" color-column at 80 (only for vim 7.3)
+if exists("+colorcolumn")
+  set colorcolumn=80
+endif
+
+let @l='aputs "10a-a "'
+let @m='aRails.logger.debug "10a-a "'
+
+" vimdiff highlighting
+hi DiffDelete cterm=none ctermbg=Magenta
+hi DiffText cterm=none ctermbg=DarkBlue
+hi DiffChange cterm=none ctermbg=Black
+
+" screen-256color terminal
+if !has("gui_running")
+  hi clear Visual
+  hi Visual term=none cterm=none ctermfg=Black ctermbg=White
+endif
+
+" Link to Marked.app
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin\n"
+    :nnoremap <leader>m :silent !open -a Marked.app '%:p'<cr>
+  endif
+endif
+
+" Create tag to jump to function definition
+function! RefreshCtags()
+  execute "!cd " . getcwd()
+
+  if executable("ctags")
+    if filereadable("tags")
+      execute "!rm ./tags"
+    endif
+    execute "!ctags -a -R --languages=Ruby &"
+  endif
+endfunction
+
+" Automatically refresh ctags when saving a *.rb file
+" au BufWritePost *.rb :silent :call RefreshCtags()
+
+" rail.vim surround with '<% %>' instead of '<% -%>'
+autocmd User Rails/**/*.erb let b:surround_{char2nr('-')} = "<% \r %>"
+
+" Load custom syntax file
+" let s:yaml_syntax = $HOME . "/.vim/syntax/yaml.vim"
+" if filereadable(s:yaml_syntax)
+"   au BufRead,BufNewFile *.yml set filetype=yaml
+"   au! Syntax yaml :exec ":source " . s:yaml_syntax
+" end
+
+" vim-slime configuration
+let g:slime_target = "tmux"
+
+set backspace=indent,eol
+
+" cleanup whitespace
+autocmd BufWritePre * :%s/\s\+$//e
+" change tab to whitespaces
+function! Tab2Whitespace()
+  if &ft =~ 'make'
+    return
+  else
+    :%s/\t/  /e
+  endif
+endfunction
+autocmd BufWritePre * call Tab2Whitespace()
+
+" cleanup consecutive multiple  blank lines
+" autocmd BufWritePre * :%!cat -s
+autocmd BufWritePre * :%s/\n\{3,}/\r\r/e

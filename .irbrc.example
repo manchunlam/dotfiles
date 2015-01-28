@@ -1,0 +1,5 @@
+require 'rubygems'
+
+require 'hirb'
+extend Hirb::Console
+Hirb::View.enable
