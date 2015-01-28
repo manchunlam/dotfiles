@@ -26,5 +26,12 @@ do
     TARGET="$HOME/$DIR_NAME"
     echo "target is $TARGET"
     ln -sf "$dir" "$TARGET"
+    # mitigate side effect of running the script multiple times
+    if [[ -d "$dir/$DIR_NAME" ]]
+    then
+      echo "redundant link exists!"
+      echo "removing $dir/$DIR_NAME"
+      rm "$dir/$DIR_NAME"
+    fi
   fi
 done
