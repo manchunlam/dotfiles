@@ -14,7 +14,7 @@ if-shell 'test "$(uname -s)" = "Darwin"' \
 
 # Copy and paste for Linux
 if-shell 'test "$(uname -s)" = "Linux"' \
-  'bind C-v run-shell "tmux show-buffer | xclip -sel clip -i"'
+  'bind C-c run-shell "tmux show-buffer | xclip -sel clip -i"'
 
 # Copy from remote to Mac
 # Enable only on Remote. Must disable "Copy and paste for Mac"
