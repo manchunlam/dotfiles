@@ -13,8 +13,10 @@ if-shell 'test "$(uname -s)" = "Darwin"' \
   'bind C-v run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"'
 
 # Copy and paste for Linux
+#
+# `2>/dev/null`: don't print out the error
 if-shell 'test "$(uname -s)" = "Linux"' \
-  'bind C-c run-shell "tmux show-buffer | xclip -sel clip -i"'
+  'bind C-c run-shell "unalias xclip 2>/dev/null; tmux show-buffer | xclip -sel clip -i"'
 
 # Copy from remote to Mac
 # Enable only on Remote. Must disable "Copy and paste for Mac"
