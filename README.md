@@ -92,5 +92,6 @@ cd dotfiles
         cd ~/dotfiles/.vim/bundle/Command-T/ruby/command-t
         rbenv local <globalVersion>
         ruby extconf.rb
-        make
+        sudo make install
+        make distclean
         ```
