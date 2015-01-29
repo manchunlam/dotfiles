@@ -1,0 +1,19 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/bin
+
+export PATH
+
+# `2>/dev/null`: not print error
+# `>/dev/null`: not print normal messages
+if type chef 2>/dev/null >/dev/null
+then
+  eval "$(chef shell-init bash)"
+fi

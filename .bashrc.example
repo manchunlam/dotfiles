@@ -1,0 +1,28 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+# User specific aliases and functions
+
+alias xclip="xclip -selection clipboard -i"
+
+# Bash completion
+#
+# So we can show git branch in prompt
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
+
+# Show '*' if git project is dirty
+export GIT_PS1_SHOWDIRTYSTATE=1
+
+# The magic from `bash_completion`
+#
+# $(__git_ps1)
+#
+# See http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html
+# for `PS1` settings
+export PS1='[\u@\h \w$(__git_ps1)]\$ '
