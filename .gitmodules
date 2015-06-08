@@ -28,3 +28,6 @@
 [submodule ".vim/bundle/vim-livedown"]
   path = .vim/bundle/vim-livedown
   url = git@github.com:shime/livedown.git
+[submodule ".vim/bundle/vim-ack"]
+	path = .vim/bundle/vim-ack
+	url = git@github.com:mileszs/ack.vim.git
