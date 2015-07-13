@@ -15,12 +15,13 @@ if-shell 'test "$(uname -s)" = "Darwin"' \
 # Copy and paste for Linux
 #
 # `2>/dev/null`: don't print out the error
-if-shell 'test "$(uname -s)" = "Linux"' \
-  'bind C-c run-shell "unalias xclip 2>/dev/null; tmux show-buffer | xclip -sel clip -i"'
+# if-shell 'test "$(uname -s)" = "Linux"' \
+#   'bind C-c run-shell "unalias xclip 2>/dev/null; tmux show-buffer | xclip"'
 
 # Copy from remote to Mac
 # Enable only on Remote. Must disable "Copy and paste for Mac"
-# bind C-c run "tmux save-buffer - | ssh -p 1234 joelam@localhost pbcopy"
+if-shell 'test "$(uname -s)" = "Linux"' \
+  'bind C-c run-shell "tmux save-buffer - | ssh -p 1234 joelam@localhost pbcopy"'
 
 set-window-option -g mode-mouse on
 set-option -g mouse-select-pane on
