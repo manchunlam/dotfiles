@@ -29,14 +29,25 @@ export SCM_CHECK=true
 # Load Bash It
 source $BASH_IT/bash_it.sh
 
-export CURL_CA_BUNDLE="/home/deploy/.curl/cacert.pem"
+if [[ -f "$HOME/.curl/cacert.pem" ]]
+then
+  export CURL_CA_BUNDLE="$HOME/.curl/cacert.pem"
+fi
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
 
-alias ls="ls -h --color=auto"
+if [[ "$(uname -a)" =~ Darwin ]]
+then
+  alias ls="ls -hG"
+else
+  alias ls="ls -h --color=auto"
+fi
 
-alias ack="ack-grep"
+if $(command -v "ack-grep")
+then
+  alias ack="ack-grep"
+fi
 
 export EDITOR="vim -f"
