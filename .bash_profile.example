@@ -40,3 +40,10 @@ if [ -f "${SSH_ENV}" ]; then
 else
   start_agent;
 fi
+
+if [[ "$(hostname --domain)" =~ oracle\.com ]]
+then
+  export http_proxy="https://ucf-b2b-proxy.us.oracle.com:80"
+  export HTTPS_PROXY="https://ucf-b2b-proxy.us.oracle.com:80"
+  export NO_PROXY="localhost,127.0.0.1,.oracle.com,.us.oracle.com"
+fi

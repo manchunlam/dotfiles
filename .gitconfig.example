@@ -14,3 +14,7 @@
 [http]
 [color "diff"]
   whitespace = red reverse
+[url "https://github.com/"]
+	insteadOf = git@github.com:
+[http]
+	proxy = https://ucf-b2b-proxy.us.oracle.com:80
