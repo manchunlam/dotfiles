@@ -1,4 +1,14 @@
-# .bash_profile
+#!/usr/bin/env bash
+
+# Path to the bash it configuration
+export BASH_IT="$HOME/.bash_it"
+
+# Lock and Load a custom theme file
+# location /.bash_it/themes/
+export BASH_IT_THEME='envy'
+
+# Load Bash It
+source $BASH_IT/bash_it.sh
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
@@ -39,11 +49,4 @@ if [ -f "${SSH_ENV}" ]; then
 }
 else
   start_agent;
-fi
-
-if [[ "$(hostname --domain)" =~ oracle\.com ]]
-then
-  export http_proxy="https://ucf-b2b-proxy.us.oracle.com:80"
-  export HTTPS_PROXY="https://ucf-b2b-proxy.us.oracle.com:80"
-  export NO_PROXY="localhost,127.0.0.1,.oracle.com,.us.oracle.com"
 fi
