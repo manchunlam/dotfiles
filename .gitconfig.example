@@ -17,4 +17,4 @@
 [url "https://github.com/"]
 	insteadOf = git@github.com:
 [http]
-	proxy = https://ucf-b2b-proxy.us.oracle.com:80
+	proxy = http://www-proxy.us.oracle.com:80
