@@ -24,10 +24,10 @@
   url = https://github.com/sukima/xmledit.git
 [submodule ".vim/bundle/vim-commentary"]
   path = .vim/bundle/vim-commentary
-  url = git@github.com:tpope/vim-commentary.git
+  url = https://github.com/tpope/vim-commentary.git
 [submodule ".vim/bundle/vim-livedown"]
   path = .vim/bundle/vim-livedown
-  url = git@github.com:shime/livedown.git
+  url = https://github.com/shime/vim-livedown.git
 [submodule ".vim/bundle/vim-ack"]
-	path = .vim/bundle/vim-ack
-	url = git@github.com:mileszs/ack.vim.git
+  path = .vim/bundle/vim-ack
+  url = https://github.com/mileszs/ack.vim.git
