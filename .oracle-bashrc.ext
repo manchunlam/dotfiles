@@ -1,0 +1,29 @@
+unset pathmunge
+
+pathmunge () {
+  if ! echo $PATH | /bin/egrep -q "(^|:)$1($|:)" ; then
+    if [ "$2" = "after" ] ; then
+      PATH=$PATH:$1
+    else
+      PATH=$1:$PATH
+    fi
+  fi
+}
+
+if [ "$EUID" = "0" ]; then
+  pathmunge /sbin
+  pathmunge /usr/sbin
+  pathmunge /usr/local/sbin
+else
+  pathmunge /usr/local/sbin after
+  pathmunge /usr/sbin after
+  pathmunge /sbin after
+fi
+
+export PATH="$(echo "$PATH" | sed "s/\/usr\/local\/bin://g")"
+export http_proxy="http://www-proxy.us.oracle.com:80"
+export HTTPS_PROXY="http://www-proxy.us.oracle.com:80"
+export NO_PROXY="localhost,127.0.0.1,.oracle.com,.us.oracle.com"
+pathmunge /usr/lib/rabbitmq/bin
+
+unset pathmunge
