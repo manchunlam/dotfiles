@@ -26,4 +26,9 @@ export HTTPS_PROXY="http://www-proxy.us.oracle.com:80"
 export NO_PROXY="localhost,127.0.0.1,.oracle.com,.us.oracle.com"
 pathmunge /usr/lib/rabbitmq/bin
 
+if [[ -f "/usr/local/bin/vim" ]]
+then
+  alias vim="/usr/local/bin/vim"
+fi
+
 unset pathmunge

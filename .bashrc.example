@@ -45,6 +45,5 @@ export EDITOR="vim -f"
 if [[ "$(hostname --domain)" =~ oracle\.com ]] && \
   [[ -f "$HOME/dotfiles/.oracle-bashrc.ext" ]]
 then
-  echo "Oracle extension loaded."
   . "$HOME/dotfiles/.oracle-bashrc.ext"
 fi
