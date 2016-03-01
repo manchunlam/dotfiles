@@ -4,24 +4,17 @@ set -g default-terminal "screen-256color"
 # Nested tmux sessions
 bind-key a send-prefix
 
-# Copy and paste for Mac
 if-shell 'test "$(uname -s)" = "Darwin"' \
-  'set-option -g default-command "reattach-to-user-namespace -l $SHELL"' # or bash...
-if-shell 'test "$(uname -s)" = "Darwin"' \
-  'bind C-c run "tmux save-buffer - | reattach-to-user-namespace pbcopy"'
-if-shell 'test "$(uname -s)" = "Darwin"' \
-  'bind C-v run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"'
+  'source ~/dotfiles/.tmux-osx \; display-message "loaded ~/dotfiles/.tmux-osx"'
 
-# Copy and paste for Linux
-#
-# `2>/dev/null`: don't print out the error
-# if-shell 'test "$(uname -s)" = "Linux"' \
-#   'bind C-c run-shell "unalias xclip 2>/dev/null; tmux show-buffer | xclip"'
-
-# Copy from remote to Mac
-# Enable only on Remote. Must disable "Copy and paste for Mac"
 if-shell 'test "$(uname -s)" = "Linux"' \
-  'bind C-c run-shell "tmux save-buffer - | ssh -p 1234 joelam@localhost pbcopy"'
+  'bind-key y run-shell "tmux show-buffer | xclip -i -sel clipboard" \; display-message "Copied tmux buffer to system clipboard"'
+
+if-shell 'test "$(uname -s)" = "Linux"' \
+  'bind-key C-c run-shell "tmux save-buffer - | ssh -p 1234 joelam@localhost pbcopy"'
+
+if-shell 'test "$(uname -s)" = "Linux" && test "$(tmux -V)" != "tmux 1.6"' \
+  'source ~/dotfiles/.tmux-linux \; display-message "loaded ~/dotfiles/.tmux-linux"'
 
 set-window-option -g mode-mouse on
 set-option -g mouse-select-pane on

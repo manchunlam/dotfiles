@@ -1,0 +1,3 @@
+bind y run-shell "tmux show-buffer | xclip -i -sel clipboard" \; display-message "Copied tmux buffer to system clipboard"
+
+bind C-c run-shell "tmux save-buffer - | ssh -p 1234 joelam@localhost xclip -i -sel clipboard"

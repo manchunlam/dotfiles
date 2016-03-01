@@ -4,6 +4,7 @@
 --ignore-file=match:tags
 --ignore-dir=coverage
 --ignore-dir=.bin
+--ignore-dir=vendor/cache
 
 --type-add
 html:ext:haml
