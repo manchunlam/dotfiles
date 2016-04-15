@@ -21,6 +21,7 @@ set expandtab
 set ruler
 set list
 " set clipboard=unnamed
+" set clipboard=unnamedplus
 set cursorline
 " set cursorcolumn
 

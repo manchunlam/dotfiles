@@ -23,11 +23,13 @@ fi
 export PATH="$(echo "$PATH" | sed "s/\/usr\/local\/bin://g")"
 export http_proxy="http://ucf-b2b-proxy.us.oracle.com:80"
 export HTTPS_PROXY="$http_proxy"
-export NO_PROXY="localhost,127.0.0.1,.oraclecloud.com,.us.oracle.com"
+export NO_PROXY="localhost,127.0.0.1,.oraclecloud.com,.us.oracle.com,.oracle.com"
 export DOCKER_SERVER_HOST="$(hostname -f)"
 export TZ="EST5EDT"
 export FACEBOOK_CLIENT_ID="1657743077812140"
 export FACEBOOK_CLIENT_SECRET="a8638afacf56d8d817b055206608e1bd"
+export RAILS_ENV="development"
+export RACK_ENV="development"
 
 pathmunge /usr/lib/rabbitmq/bin
 

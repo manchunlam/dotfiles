@@ -8,10 +8,10 @@ if-shell 'test "$(uname -s)" = "Darwin"' \
   'source ~/dotfiles/.tmux-osx \; display-message "loaded ~/dotfiles/.tmux-osx"'
 
 if-shell 'test "$(uname -s)" = "Linux"' \
-  'bind-key y run-shell "tmux show-buffer | xclip -i -sel clipboard" \; display-message "Copied tmux buffer to system clipboard"'
+  'bind-key y run-shell "tmux save-buffer - | xsel -ib" \; display-message "Copied tmux buffer to system clipboard"'
 
 if-shell 'test "$(uname -s)" = "Linux"' \
-  'bind-key C-c run-shell "tmux save-buffer - | ssh -p 1234 joelam@localhost pbcopy"'
+  'bind-key C-c run-shell "tmux show-buffer -b 0 | xsel -ib" \; display-message "Copied tmux buffer to system clipboard"'
 
 if-shell 'test "$(uname -s)" = "Linux" && test "$(tmux -V)" != "tmux 1.6"' \
   'source ~/dotfiles/.tmux-linux \; display-message "loaded ~/dotfiles/.tmux-linux"'
