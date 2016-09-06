@@ -1,5 +1,14 @@
 #!/usr/bin/env bash
 
+# Don't check mail when opening terminal.
+unset MAILCHECK
+
+# Change this to your console based IRC client of choice.
+export IRC_CLIENT='irssi'
+
+# Set this to the command you use for todo.txt-cli
+export TODO="t"
+
 # Path to the bash it configuration
 export BASH_IT="$HOME/.bash_it"
 
@@ -9,6 +18,14 @@ export BASH_IT_THEME='envy'
 
 # Load Bash It
 source $BASH_IT/bash_it.sh
+# Don't check mail when opening terminal.
+unset MAILCHECK
+
+# Change this to your console based IRC client of choice.
+export IRC_CLIENT='irssi'
+
+# Set this to the command you use for todo.txt-cli
+export TODO="t"
 
 # Get the aliases and functions
 if [ -f ~/.bashrc ]; then
@@ -50,3 +67,15 @@ if [ -f "${SSH_ENV}" ]; then
 else
   start_agent;
 fi
+
+# Invoke GnuPG-Agent the first time we login.
+# Does `~/.gpg-agent-info' exist and points to gpg-agent process accepting signals?
+if test -f $HOME/.gpg-agent-info && \
+    kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then
+    GPG_AGENT_INFO=`cat $HOME/.gpg-agent-info | cut -c 16-`
+else
+    # No, gpg-agent not available; start gpg-agent
+    eval `gpg-agent --daemon --no-grab --write-env-file $HOME/.gpg-agent-info`
+fi
+export GPG_TTY=`tty`
+export GPG_AGENT_INFO

@@ -1,24 +1,5 @@
 #!/usr/bin/env bash
 
-# Your place for hosting Git repos. I use this for private repos.
-export GIT_HOSTING='git@git.domain.com'
-
-# Don't check mail when opening terminal.
-unset MAILCHECK
-
-# Change this to your console based IRC client of choice.
-export IRC_CLIENT='irssi'
-
-# Set this to the command you use for todo.txt-cli
-export TODO="t"
-
-# Set this to false to turn off version control status checking within the prompt for all themes
-export SCM_CHECK=true
-
-# Set vcprompt executable path for scm advance info in prompt (demula theme)
-# https://github.com/xvzf/vcprompt
-#export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
-
 if [[ -f "$HOME/.curl/cacert.pem" ]]
 then
   export CURL_CA_BUNDLE="$HOME/.curl/cacert.pem"
@@ -41,3 +22,10 @@ then
 fi
 
 export EDITOR="vim -f"
+
+export http_proxy="http://dmz-proxy.oracleads.com:80"
+export HTTPS_PROXY="$http_proxy"
+export https_proxy="$HTTPS_PROXY"
+export NO_PROXY="127.0.0.1,localhost,.oracle.com,.oraclecloud.com,.vitrue.com"
+export no_proxy="$NO_PROXY"
+export NSS_DISABLE_HW_AES=1
