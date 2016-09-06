@@ -1,9 +1,13 @@
---ignore-dir=.bundle
---ignore-dir=log
---ignore-dir=tmp
+--ignore-dir=.bundle/
+--ignore-dir=log/
+--ignore-dir=tmp/
 --ignore-file=match:tags
---ignore-dir=coverage
---ignore-dir=.bin
+--ignore-dir=coverage/
+--ignore-dir=.bin/
+--ignore-dir=vendor/cache/
+--ignore-dir=public/assets/
+--ignore-dir=public/akamai/
+--ignore-dir=vendor/assets/
 
 --type-add
 html:ext:haml
