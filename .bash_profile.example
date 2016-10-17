@@ -17,7 +17,8 @@ export BASH_IT="$HOME/.bash_it"
 export BASH_IT_THEME='envy'
 
 # Load Bash It
-source $BASH_IT/bash_it.sh
+. $BASH_IT/bash_it.sh
+
 # Don't check mail when opening terminal.
 unset MAILCHECK
 

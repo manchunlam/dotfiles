@@ -23,9 +23,4 @@ fi
 
 export EDITOR="vim -f"
 
-export http_proxy="http://dmz-proxy.oracleads.com:80"
-export HTTPS_PROXY="$http_proxy"
-export https_proxy="$HTTPS_PROXY"
-export NO_PROXY="127.0.0.1,localhost,.oracle.com,.oraclecloud.com,.vitrue.com"
-export no_proxy="$NO_PROXY"
 export NSS_DISABLE_HW_AES=1
