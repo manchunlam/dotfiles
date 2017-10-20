@@ -82,3 +82,7 @@ fi
 # export GPG_AGENT_INFO
 
 export QMAKE="/usr/bin/qmake-qt5"
+
+# For Postgresql
+export PAGER=less
+export LESS="-iMSx4 -eFRX"

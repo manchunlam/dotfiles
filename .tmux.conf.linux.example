@@ -7,6 +7,7 @@ bind-key a send-prefix
 set-option -g mouse on
 set-window-option -g mode-keys vi
 set-option -g history-limit 3000
+set-option -g history-file /tmp/tmux-history.log
 
 bind y run-shell "tmux show-buffer | xsel -i -b && tmux show-buffer | xsel -i -p" \; display-message "Copied tmux buffer to system clipboard via X Windows"
 

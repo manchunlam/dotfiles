@@ -79,7 +79,7 @@ cd dotfiles
     2. Go to `command-t`, check the ruby version in that directory
 
         ```sh
-        cd dotfiles/.vim/bundle/Command-T/ruby/command-t
+        cd dotfiles/.vim/bundle/Command-T/ruby/command-t/ext/command-t/
         rbenv version
         # or
         # `ruby --version`
@@ -89,7 +89,7 @@ cd dotfiles
         the same as that of global
 
         ```
-        cd ~/dotfiles/.vim/bundle/Command-T/ruby/command-t
+        cd ~/dotfiles/.vim/bundle/Command-T/ruby/command-t/ext/command-t/
         rbenv local <globalVersion>
         ruby extconf.rb
         sudo make install

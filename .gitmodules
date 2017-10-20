@@ -31,6 +31,15 @@
 [submodule ".vim/bundle/vim-ack"]
   path = .vim/bundle/vim-ack
   url = https://github.com/mileszs/ack.vim.git
-[submodule ".vim/bundle/tabline"]
-	path = .vim/bundle/tabline
-	url = https://github.com/mkitt/tabline.vim.git
+[submodule ".vim/bundle/vim-javascript-syntax"]
+	path = .vim/bundle/vim-javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule ".vim/bundle/vim-angular"]
+	path = .vim/bundle/vim-angular
+	url = https://github.com/burnettk/vim-angular.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = .vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/typescript-vim"]
+	path = .vim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git

@@ -31,7 +31,7 @@ set hlsearch
 
 " color scheme
 set background=dark
-colorscheme wombat
+" colorscheme wombat
 
 " folding
 set foldmethod=syntax
@@ -111,3 +111,7 @@ autocmd BufWritePre * :%s/\n\{3,}/\r\r/e
 
 " vim-livedown Markdown Preview plugin
 map gm :call LivedownPreview()<CR>
+
+" search whole word including dash
+" 'color-scheme', pressing `*` over `c` will search the word 'color-scheme'
+set isk+=-

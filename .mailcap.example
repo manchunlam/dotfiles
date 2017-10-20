@@ -1,0 +1,6 @@
+text/html;  firefox %s >/dev/null 2>&1; needsterminal
+text/html;  elinks -dump %s; nametemplate=%s.html; copiousoutput
+application/pdf; firefox %s; copiousoutput
+image/gif; firefox %s
+image/jpg; firefox %s; needsterminal; description=JPEG Image; nametemplate=%s.jpg
+image/jpeg; firefox %s; needsterminal; description=JPEG Image; nametemplate=%s.jpg
