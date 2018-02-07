@@ -86,3 +86,8 @@ export QMAKE="/usr/bin/qmake-qt5"
 # For Postgresql
 export PAGER=less
 export LESS="-iMSx4 -eFRX"
+
+# For compiling Google products
+export PATH="$PATH:/home/joelam/projects/third-party/depot_tools"
+
+export PATH="$HOME/.cargo/bin:$PATH"
