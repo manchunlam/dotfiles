@@ -12,3 +12,20 @@ set-option -g history-file /tmp/tmux-history.log
 bind y run-shell "tmux show-buffer | xsel -i -b && tmux show-buffer | xsel -i -p" \; display-message "Copied tmux buffer to system clipboard via X Windows"
 
 bind C-c run-shell "tmux save-buffer - | ssh -p 1234 joelam@127.0.0.1 'DISPLAY=:0 xsel -i -b' && tmux save-buffer - | ssh -p 1234 joelam@127.0.0.1 'DISPLAY=:0 xsel -i -p'" \; display-message "Copied tmux buffer to system clipboard via ssh"
+
+set -g status-interval 2
+set -g status-right " #[bg=green,fg=black]#(/usr/local/bin/tmux-mem-cpu-load -m 2 -t 0 --interval 2)#[default]"
+set -g status-right-length 60
+
+set -g status-position bottom
+set -g status-left "%a %h-%d %H:%M | "
+set -g status-left-length 40
+
+setw -g allow-rename off
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'thewtex/tmux-mem-cpu-load'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

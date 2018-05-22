@@ -41,3 +41,7 @@ if [[ -n "${TMUX}" ]] && [[ -e "`pwd`/.nvmrc" ]]
 then
   nvm use
 fi
+
+export SVGA_VGPU10=0
+
+export AWS_PROFILE=Developer

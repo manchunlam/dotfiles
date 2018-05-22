@@ -115,3 +115,8 @@ map gm :call LivedownPreview()<CR>
 " search whole word including dash
 " 'color-scheme', pressing `*` over `c` will search the word 'color-scheme'
 set isk+=-
+
+autocmd FileType typescript nmap <buffer> <Leader>- : <C-u>echo tsuquyomi#hint()<CR>
+
+let g:typescript_compiler_options='--target ES5 --experimentalDecorators'
+let g:syntastic_typescript_tsc_fname = ''

@@ -91,3 +91,8 @@ export LESS="-iMSx4 -eFRX"
 export PATH="$PATH:/home/joelam/projects/third-party/depot_tools"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+if [ -n "$DESKTOP_SESSION" ];then
+  eval $(gnome-keyring-daemon --start)
+  export SSH_AUTH_SOCK
+fi
